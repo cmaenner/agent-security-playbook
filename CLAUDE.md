@@ -79,6 +79,7 @@ agent-security-playbook/
 ├── .claude-plugin/               # Plugin marketplace config for Claude Code installation
 │   └── marketplace.json
 ├── skills/                       # Agent Skills (SKILL.md per skill, installable as plugin)
+│   ├── securability-engineering/
 │   ├── securability-engineering-review/
 │   ├── agent-security-audit/
 │   ├── agentic-ai-risk-assess/
