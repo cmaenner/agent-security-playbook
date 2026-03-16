@@ -9,6 +9,40 @@ license: CC-BY-4.0
 
 Analyze code for securable engineering qualities by following the full procedure in `plays/tier1-code-analysis/securability-engineering-review.md`.
 
+## Scoring Framework
+
+Each SSEM attribute is scored **0–10**. Pillar scores are calculated using weighted sub-attribute scores. The overall SSEM score is the simple average of the three pillar scores.
+
+### Pillar Weights
+
+| Pillar | Weight | Sub-Attributes (Weight) |
+|--------|--------|------------------------|
+| **Maintainability** | 33% | Analyzability (40%), Modifiability (30%), Testability (30%) |
+| **Trustworthiness** | 34% | Confidentiality (35%), Accountability (30%), Authenticity (35%) |
+| **Reliability** | 33% | Availability (25%), Integrity (35%), Resilience (40%) |
+
+**Overall SSEM Score** = (Maintainability + Trustworthiness + Reliability) / 3
+
+### Grading Scale
+
+| Score Range | Grade | Description |
+|-------------|-------|-------------|
+| 9.0 – 10.0 | **Excellent** | Exemplary implementation, minimal improvement needed |
+| 8.0 – 8.9 | **Good** | Strong implementation, minor improvements beneficial |
+| 7.0 – 7.9 | **Adequate** | Functional but notable improvement opportunities exist |
+| 6.0 – 6.9 | **Fair** | Basic requirements met, significant improvements needed |
+| < 6.0 | **Poor** | Critical deficiencies requiring immediate attention |
+
+### Severity Classification for SSEM Deficits
+
+| Severity | Criteria |
+|----------|---------|
+| CRITICAL | Attribute deficit directly enables exploitation or prevents incident response |
+| HIGH | Attribute deficit significantly increases probability of material impact |
+| MEDIUM | Attribute deficit degrades securability but does not directly enable attack |
+| LOW | Attribute deficit is a code quality concern with indirect security implications |
+| INFORMATIONAL | Positive observation or minor improvement opportunity |
+
 ## Steps
 
 1. **Scope & Context** — Establish language/framework, system type, data sensitivity, exposure, lifecycle stage, and team context.

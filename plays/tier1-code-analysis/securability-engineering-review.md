@@ -37,27 +37,7 @@ Before analysis, internalize these FIASSE principles:
 
 ## Scoring Framework
 
-Each SSEM attribute is scored **0–10**. Pillar scores are calculated using weighted sub-attribute scores. The overall SSEM score is the simple average of the three pillar scores.
-
-### Pillar Weights
-
-| Pillar | Weight | Sub-Attributes (Weight) |
-|--------|--------|------------------------|
-| **Maintainability** | 33% | Analyzability (40%), Modifiability (30%), Testability (30%) |
-| **Trustworthiness** | 34% | Confidentiality (35%), Accountability (30%), Authenticity (35%) |
-| **Reliability** | 33% | Availability (25%), Integrity (35%), Resilience (40%) |
-
-**Overall SSEM Score** = (Maintainability + Trustworthiness + Reliability) / 3
-
-### Grading Scale
-
-| Score Range | Grade | Description |
-|-------------|-------|-------------|
-| 9.0 – 10.0 | **Excellent** | Exemplary implementation, minimal improvement needed |
-| 8.0 – 8.9 | **Good** | Strong implementation, minor improvements beneficial |
-| 7.0 – 7.9 | **Adequate** | Functional but notable improvement opportunities exist |
-| 6.0 – 6.9 | **Fair** | Basic requirements met, significant improvements needed |
-| < 6.0 | **Poor** | Critical deficiencies requiring immediate attention |
+> Scoring mechanics (pillar weights, grading scale, severity classification, and overall score formula) are defined in the skill: `skills/securability-engineering-review/SKILL.md`.
 
 ## Procedure
 
@@ -385,15 +365,7 @@ For each identified gap in SSEM attributes:
 - **Measurement**: How to verify the improvement (quantitative metric or qualitative check)
 ```
 
-**Severity mapping for SSEM deficits:**
-
-| Severity | Criteria |
-|----------|---------|
-| CRITICAL | Attribute deficit directly enables exploitation or prevents incident response |
-| HIGH | Attribute deficit significantly increases probability of material impact |
-| MEDIUM | Attribute deficit degrades securability but does not directly enable attack |
-| LOW | Attribute deficit is a code quality concern with indirect security implications |
-| INFORMATIONAL | Positive observation or minor improvement opportunity |
+**Severity mapping for SSEM deficits:** See the severity classification table in the skill (`skills/securability-engineering-review/SKILL.md`).
 
 ## Output Format
 
@@ -497,33 +469,7 @@ For each pillar, provide:
    - **Solution:** [Actionable steps]
    - **Expected Improvement:** +[X.X] points
 
-For individual findings, use this template:
-
-```markdown
-### [SEVERITY] Title — SSEM Attribute Deficit
-
-- **SSEM Category**: Maintainability | Trustworthiness | Reliability
-- **SSEM Attribute**: Analyzability | Modifiability | Testability | Confidentiality | Accountability | Authenticity | Availability | Integrity | Resilience
-- **FIASSE Section**: §X.X.X
-- **CWE** (if applicable): CWE-XXX
-- **Location**: file_path:line_number
-- **Current State**: Description of the current code quality/state
-- **Impact**: How this deficit affects the system's ability to remain securable over time
-- **Evidence**: Code snippet, metric, or observation demonstrating the gap
-- **Remediation**: Specific engineering improvement with code example
-- **Measurement**: How to verify the improvement (quantitative metric or qualitative check)
-- **Expected Improvement**: +[X.X] points to [Attribute] score
-```
-
-**Severity mapping for SSEM deficits:**
-
-| Severity | Criteria |
-|----------|---------|
-| CRITICAL | Attribute deficit directly enables exploitation or prevents incident response |
-| HIGH | Attribute deficit significantly increases probability of material impact |
-| MEDIUM | Attribute deficit degrades securability but does not directly enable attack |
-| LOW | Attribute deficit is a code quality concern with indirect security implications |
-| INFORMATIONAL | Positive observation or minor improvement opportunity |
+For individual findings, use the template from Section 8 above.
 
 ### Part 3: Appendix A — Evaluation Checklist
 
