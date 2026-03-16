@@ -369,8 +369,6 @@ For each identified gap in SSEM attributes:
 
 ## Output Format
 
-```markdown
-
 ### Part 1: SSEM Score Summary
 
 ```
@@ -483,7 +481,7 @@ After the detailed findings, include this checklist with items marked (`[x]` for
 MAINTAINABILITY CHECKLIST
 
 Analyzability:
-[ ] Methods under 50 lines
+[ ] Methods under 30 lines
 [ ] Cyclomatic complexity <10
 [ ] Clear naming conventions
 [ ] Self-documenting code

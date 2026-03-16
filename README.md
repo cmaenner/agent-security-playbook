@@ -25,7 +25,7 @@ Each **play** is a step-by-step security procedure with checklists, decision cri
 
 | Plugin | Skills Included |
 |--------|----------------|
-| `code-security-skills` | securability-engineering-review, code-review-security, sca-audit, secrets-scan, api-security-review, web-security-review |
+| `code-security-skills` | securability-engineering, securability-engineering-review, code-review-security, sca-audit, secrets-scan, api-security-review, web-security-review |
 | `ai-security-skills` | agent-security-audit, llm-risk-assess, agentic-ai-risk-assess, mcp-server-review, prompt-injection-test |
 
 **Step 3** — Use the skills by mentioning the task in conversation:
