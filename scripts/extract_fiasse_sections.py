@@ -655,7 +655,7 @@ TARGET_SECTIONS: list[str] = [
 # The RFC uses varied heading levels (##, ###, ####) so we match flexibly.
 HEADING_PATTERNS: dict[str, re.Pattern] = {
     sid: re.compile(
-        rf"^#{2,5}\s+{re.escape(sid)}\.?\s",
+        rf"^#{{2,5}}\s+{re.escape(sid)}\.?\s",
         re.MULTILINE,
     )
     for sid in TARGET_SECTIONS
@@ -676,7 +676,7 @@ for i, sid in enumerate(TARGET_SECTIONS):
 # Also include higher-level headings that would terminate a section.
 # E.g. "## 4." terminates anything in section 3.x.
 _CHAPTER_HEADS = [
-    re.compile(rf"^#{2,3}\s+{ch}\.\s", re.MULTILINE)
+    re.compile(rf"^#{{2,3}}\s+{ch}\.\s", re.MULTILINE)
     for ch in ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 ]
 
