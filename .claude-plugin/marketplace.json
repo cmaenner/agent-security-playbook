@@ -15,6 +15,7 @@
       "source": "./",
       "strict": false,
       "skills": [
+        "./skills/securability-engineering",
         "./skills/securability-engineering-review",
         "./skills/code-review-security",
         "./skills/sca-audit",
