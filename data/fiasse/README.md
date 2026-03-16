@@ -35,6 +35,7 @@ Followed by the FIASSE section content. Sections that define measurable requirem
 
 ```
 | Metric | Type | Description |
+| --- | --- | --- |
 | Volume (LoC) | Quantitative | Overall size of the codebase |
 ```
 
@@ -57,7 +58,9 @@ When scoring SSEM attributes, reference the specific section for definitions and
 - **Measurement**: S3.4.1 Measuring Maintainability
 ```
 
-### FIASSE Code Analysis (`/fiasse-code-analysis`)
+### FIASSE Code Analysis (`/securability-engineering-review`)
+
+When identifying code-level threats, use the "What can go wrong?" framework and map identified issues to the relevant SSEM attributes and FIASSE sections for context and remediation guidance.
 
 Use `when_to_use` frontmatter to match tasks to relevant FIASSE sections. For example, when reviewing dependency management:
 - `S4.1` — Applying SSEM to Dependency Management

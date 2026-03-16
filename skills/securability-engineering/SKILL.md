@@ -1,4 +1,3 @@
-```skill
 ---
 name: securability-engineering
 description: >
@@ -142,5 +141,3 @@ Generated code that embodies FIASSE securable qualities. When the generation is 
 - `data/fiasse/S6.4.md` — Resilient Coding, Derived Integrity Principle, Request Surface Minimization
 - ISO/IEC 25010:2011 — Software quality models
 - RFC 4949 — Internet Security Glossary
-
-```

@@ -1,4 +1,3 @@
-```skill
 ---
 name: securability-engineering-review
 description: Analyze code for securable qualities using the FIASSE/SSEM framework. Use when assessing code securability, evaluating engineering attributes that impact security (analyzability, modifiability, testability, confidentiality, accountability, authenticity, availability, integrity, resilience), reviewing merge requests through a securable engineering lens, or establishing a security posture baseline. Complements vulnerability-centric reviews by focusing on whether code is able to accommodate fixes for security findings and is engineered to remain securable over time.
@@ -83,5 +82,3 @@ Part 1: SSEM Score Summary (overall score, grade, pillar breakdown with weights,
 - OWASP Proactive Controls
 - OWASP Top 10 (2021)
 - OWASP ASVS v5.0
-
-```
