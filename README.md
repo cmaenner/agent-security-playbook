@@ -63,7 +63,7 @@ The differentiator — security procedures purpose-built for the AI agent era.
 | [mcp-server-review](plays/tier4-ai-security/mcp-server-review.md) | Review MCP server implementations for overpermissioning, injection, data exposure |
 | [prompt-injection-testing](plays/tier4-ai-security/prompt-injection-testing.md) | Test LLM apps against 18 attack techniques, 20 evasions, 13 intents |
 
-### Tier 0: Securable Code Analysis (FIASSE/SSEM)
+### Tier 1: Securable Code Analysis (FIASSE/SSEM)
 
 Foundational engineering assessment — evaluate whether code possesses inherent securable qualities.
 
