@@ -1,11 +1,11 @@
 ---
 name: securability-engineering
 description: >
-  Meta-skill that wraps code generation to enforce FIASSE securable coding attributes and principles.
-  Use when generating, scaffolding, or refactoring code so that the output is engineered to be securable
-  by default. Applies the nine SSEM attributes (Analyzability, Modifiability, Testability,
+  Meta-skill that wraps code generation to enforce OWASP FIASSE securable coding attributes and principles.
+  Use when generating, scaffolding, or refactoring code so that the output is engineered to be inherently
+  securable by default. Applies the nine SSEM attributes (Analyzability, Modifiability, Testability,
   Confidentiality, Accountability, Authenticity, Availability, Integrity, Resilience), the
-  Transparency principle, and FIASSE defensive coding practices to every code generation task.
+  Transparency principle, and OWASP FIASSE defensive coding practices to every code generation task.
   Invoke this skill alongside or instead of raw code generation when the user asks for secure code,
   securable code, FIASSE-compliant code, or when generating security-sensitive components
   (auth, input handling, data access, API endpoints, trust boundaries).
@@ -133,6 +133,7 @@ Generated code that embodies FIASSE securable qualities. When the generation is 
 
 ## FIASSE References
 
+- [OWASP FIASSE Project](https://owasp.org/www-project-fiasse/) — Tools and resources for FIASSE/SSEM
 - [FIASSE RFC](https://github.com/Xcaciv/securable_software_engineering/blob/main/docs/FIASSE-RFC.md) — Framework for Integrating Application Security into Software Engineering
 - `data/fiasse/S2.1.md` – S2.6.md — Foundational Principles
 - `data/fiasse/S3.2.1.md` – S3.2.3.md — SSEM Core Attributes

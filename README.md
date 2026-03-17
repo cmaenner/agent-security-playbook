@@ -63,13 +63,6 @@ The differentiator — security procedures purpose-built for the AI agent era.
 | [mcp-server-review](plays/tier4-ai-security/mcp-server-review.md) | Review MCP server implementations for overpermissioning, injection, data exposure |
 | [prompt-injection-testing](plays/tier4-ai-security/prompt-injection-testing.md) | Test LLM apps against 18 attack techniques, 20 evasions, 13 intents |
 
-### Tier 1: Securable Code Analysis (FIASSE/SSEM)
-
-Foundational engineering assessment — evaluate whether code possesses inherent securable qualities.
-
-| Play | What It Does |
-|------|-------------|
-| [securability-engineering-review](plays/tier1-code-analysis/securability-engineering-review.md) | Assess code against FIASSE/SSEM securable attributes: Maintainability, Trustworthiness, Reliability, and Transparency |
 
 ### Tier 1: Code & Dependency Analysis
 
@@ -81,6 +74,7 @@ Immediate, practical value for any codebase.
 | [code-review-security](plays/tier1-code-analysis/code-review-security.md) | Systematic security code review mapped to OWASP Top 10 and ASVS |
 | [secrets-scan](plays/tier1-code-analysis/secrets-scan.md) | Detect hardcoded credentials, API keys, and tokens |
 | [api-security-review](plays/tier1-code-analysis/api-security-review.md) | Review APIs against OWASP API Security Top 10 |
+| [securability-engineering-review](plays/tier1-code-analysis/securability-engineering-review.md) | Assess code against FIASSE/SSEM securable attributes: Maintainability, Trustworthiness, Reliability, and Transparency |
 
 ### Planned
 

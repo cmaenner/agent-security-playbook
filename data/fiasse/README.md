@@ -2,7 +2,8 @@
 
 35 structured FIASSE section files sourced from the [FIASSE RFC](https://github.com/Xcaciv/securable_software_engineering/blob/main/docs/FIASSE-RFC.md) by Alton Crossley.
 
-FIASSE (Framework for Integrating Application Security into Software Engineering) provides the overarching strategic approach. SSEM (Securable Software Engineering Model) provides the design language with 9 core attributes grouped into 3 pillars: Maintainability, Trustworthiness, and Reliability.
+
+[OWASP FIASSE](https://owasp.org/www-project-fiasse/) (Framework for Integrating Application Security into Software Engineering) provides the overarching strategic approach. SSEM (Securable Software Engineering Model) provides the design language with 9 core attributes grouped into 3 pillars: Maintainability, Trustworthiness, and Reliability.
 
 ## Source & License
 

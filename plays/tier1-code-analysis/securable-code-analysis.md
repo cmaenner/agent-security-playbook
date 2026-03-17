@@ -1,10 +1,10 @@
 # Play: Securable Code Analysis (FIASSE/SSEM)
 
-Analyze code and architecture for inherent securable qualities using the OWASP Framework for Integrating Application Security into Software Engineering (FIASSE) and the Securable Software Engineering Model (SSEM). Unlike vulnerability-centric reviews that ask "Is it secure?", this play evaluates whether code possesses the fundamental engineering attributes that make software **securable** — able to adapt to and withstand evolving threats over time.
+Analyze code and architecture for inherent securable qualities using the Framework for Integrating Application Security into Software Engineering (FIASSE) and the Securable Software Engineering Model (SSEM). Unlike vulnerability-centric reviews that ask "Is it secure?", this play evaluates whether code possesses the fundamental engineering attributes that make software **securable** — able to adapt to and withstand evolving threats over time.
 
 This play operationalizes the nine core SSEM attributes across three categories: **Maintainability** (Analyzability, Modifiability, Testability), **Trustworthiness** (Confidentiality, Accountability, Authenticity), and **Reliability** (Availability, Integrity, Resilience). Findings are framed as engineering improvement opportunities rather than exploit-centric vulnerabilities.
 
-> **Reference**: [OWASP FIASSE RFC — A Framework for Integrating Application Security into Software Engineering](https://github.com/Xcaciv/securable_software_engineering/blob/main/docs/FIASSE-RFC.md) by Alton Crossley
+> **Reference**: [FIASSE RFC — A Framework for Integrating Application Security into Software Engineering](https://github.com/Xcaciv/securable_software_engineering/blob/main/docs/FIASSE-RFC.md) by Alton Crossley
 
 ## Trigger Conditions
 
@@ -37,7 +37,27 @@ Before analysis, internalize these FIASSE principles:
 
 ## Scoring Framework
 
-> Scoring mechanics (pillar weights, grading scale, severity classification, and overall score formula) are defined in the skill: `skills/securability-engineering-review/SKILL.md`.
+Each SSEM attribute is scored **0–10**. Pillar scores are calculated using weighted sub-attribute scores. The overall SSEM score is the simple average of the three pillar scores.
+
+### Pillar Weights
+
+| Pillar | Weight | Sub-Attributes (Weight) |
+|--------|--------|------------------------|
+| **Maintainability** | 33% | Analyzability (40%), Modifiability (30%), Testability (30%) |
+| **Trustworthiness** | 34% | Confidentiality (35%), Accountability (30%), Authenticity (35%) |
+| **Reliability** | 33% | Availability (25%), Integrity (35%), Resilience (40%) |
+
+**Overall SSEM Score** = (Maintainability + Trustworthiness + Reliability) / 3
+
+### Grading Scale
+
+| Score Range | Grade | Description |
+|-------------|-------|-------------|
+| 9.0 – 10.0 | **Excellent** | Exemplary implementation, minimal improvement needed |
+| 8.0 – 8.9 | **Good** | Strong implementation, minor improvements beneficial |
+| 7.0 – 7.9 | **Adequate** | Functional but notable improvement opportunities exist |
+| 6.0 – 6.9 | **Fair** | Basic requirements met, significant improvements needed |
+| < 6.0 | **Poor** | Critical deficiencies requiring immediate attention |
 
 ## Procedure
 
@@ -365,9 +385,19 @@ For each identified gap in SSEM attributes:
 - **Measurement**: How to verify the improvement (quantitative metric or qualitative check)
 ```
 
-**Severity mapping for SSEM deficits:** See the severity classification table in the skill (`skills/securability-engineering-review/SKILL.md`).
+**Severity mapping for SSEM deficits:**
+
+| Severity | Criteria |
+|----------|---------|
+| CRITICAL | Attribute deficit directly enables exploitation or prevents incident response |
+| HIGH | Attribute deficit significantly increases probability of material impact |
+| MEDIUM | Attribute deficit degrades securability but does not directly enable attack |
+| LOW | Attribute deficit is a code quality concern with indirect security implications |
+| INFORMATIONAL | Positive observation or minor improvement opportunity |
 
 ## Output Format
+
+```markdown
 
 ### Part 1: SSEM Score Summary
 
@@ -467,7 +497,33 @@ For each pillar, provide:
    - **Solution:** [Actionable steps]
    - **Expected Improvement:** +[X.X] points
 
-For individual findings, use the template from Section 8 above.
+For individual findings, use this template:
+
+```markdown
+### [SEVERITY] Title — SSEM Attribute Deficit
+
+- **SSEM Category**: Maintainability | Trustworthiness | Reliability
+- **SSEM Attribute**: Analyzability | Modifiability | Testability | Confidentiality | Accountability | Authenticity | Availability | Integrity | Resilience
+- **FIASSE Section**: §X.X.X
+- **CWE** (if applicable): CWE-XXX
+- **Location**: file_path:line_number
+- **Current State**: Description of the current code quality/state
+- **Impact**: How this deficit affects the system's ability to remain securable over time
+- **Evidence**: Code snippet, metric, or observation demonstrating the gap
+- **Remediation**: Specific engineering improvement with code example
+- **Measurement**: How to verify the improvement (quantitative metric or qualitative check)
+- **Expected Improvement**: +[X.X] points to [Attribute] score
+```
+
+**Severity mapping for SSEM deficits:**
+
+| Severity | Criteria |
+|----------|---------|
+| CRITICAL | Attribute deficit directly enables exploitation or prevents incident response |
+| HIGH | Attribute deficit significantly increases probability of material impact |
+| MEDIUM | Attribute deficit degrades securability but does not directly enable attack |
+| LOW | Attribute deficit is a code quality concern with indirect security implications |
+| INFORMATIONAL | Positive observation or minor improvement opportunity |
 
 ### Part 3: Appendix A — Evaluation Checklist
 
@@ -481,7 +537,7 @@ After the detailed findings, include this checklist with items marked (`[x]` for
 MAINTAINABILITY CHECKLIST
 
 Analyzability:
-[ ] Methods under 30 lines
+[ ] Methods under 50 lines
 [ ] Cyclomatic complexity <10
 [ ] Clear naming conventions
 [ ] Self-documenting code
@@ -570,7 +626,7 @@ Resilience:
 
 ## References
 
-- [OWASP FIASSE Project](https://owasp.org/www-project-fiasse/) — Tools and resources for FIASSE/SSEM
+- [OWASP FIASSE — Framework for Integrating Application Security into Software Engineering](https://owasp.org/www-project-fiasse/)
 - [OWASP FIASSE RFC](https://github.com/Xcaciv/securable_software_engineering/blob/main/docs/FIASSE-RFC.md) — Alton Crossley
 - ISO/IEC 25010:2011 — Systems and software quality models
 - RFC 4949 — Internet Security Glossary

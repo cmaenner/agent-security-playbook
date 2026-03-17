@@ -1,46 +1,13 @@
+```skill
 ---
-name: securability-engineering-review
-description: Analyze code for securable qualities using the OWASP FIASSE/SSEM framework. Use when assessing code securability, evaluating engineering attributes that impact security (analyzability, modifiability, testability, confidentiality, accountability, authenticity, availability, integrity, resilience), reviewing merge requests through a securable engineering lens, or establishing a security posture baseline. Complements vulnerability-centric reviews by focusing on whether code is able to accommodate fixes for security findings and is engineered to remain securable over time.
+name: securable-code-analysis
+description: Analyze code for securable qualities using the FIASSE/SSEM framework. Use when assessing code securability, evaluating engineering attributes that impact security (analyzability, modifiability, testability, confidentiality, accountability, authenticity, availability, integrity, resilience), reviewing merge requests through a securable engineering lens, or establishing a security posture baseline. Complements vulnerability-centric reviews by focusing on whether code is able to accommodate fixes for security findings and is engineered to remain securable over time.
 license: CC-BY-4.0
 ---
 
-# Securable Code Analysis (OWASP FIASSE/SSEM)
+# Securable Code Analysis (FIASSE/SSEM)
 
-Analyze code for securable engineering qualities by following the full procedure in `plays/tier1-code-analysis/securability-engineering-review.md`.
-
-## Scoring Framework
-
-Each SSEM attribute is scored **0–10**. Pillar scores are calculated using weighted sub-attribute scores. The overall SSEM score is the simple average of the three pillar scores.
-
-### Pillar Weights
-
-| Pillar | Weight | Sub-Attributes (Weight) |
-|--------|--------|------------------------|
-| **Maintainability** | 33% | Analyzability (40%), Modifiability (30%), Testability (30%) |
-| **Trustworthiness** | 34% | Confidentiality (35%), Accountability (30%), Authenticity (35%) |
-| **Reliability** | 33% | Availability (25%), Integrity (35%), Resilience (40%) |
-
-**Overall SSEM Score** = (Maintainability + Trustworthiness + Reliability) / 3
-
-### Grading Scale
-
-| Score Range | Grade | Description |
-|-------------|-------|-------------|
-| 9.0 – 10.0 | **Excellent** | Exemplary implementation, minimal improvement needed |
-| 8.0 – 8.9 | **Good** | Strong implementation, minor improvements beneficial |
-| 7.0 – 7.9 | **Adequate** | Functional but notable improvement opportunities exist |
-| 6.0 – 6.9 | **Fair** | Basic requirements met, significant improvements needed |
-| < 6.0 | **Poor** | Critical deficiencies requiring immediate attention |
-
-### Severity Classification for SSEM Deficits
-
-| Severity | Criteria |
-|----------|---------|
-| CRITICAL | Attribute deficit directly enables exploitation or prevents incident response |
-| HIGH | Attribute deficit significantly increases probability of material impact |
-| MEDIUM | Attribute deficit degrades securability but does not directly enable attack |
-| LOW | Attribute deficit is a code quality concern with indirect security implications |
-| INFORMATIONAL | Positive observation or minor improvement opportunity |
+Analyze code for securable engineering qualities by following the full procedure in `plays/tier0-code-analysis/securable-code-analysis.md`.
 
 ## Steps
 
@@ -73,9 +40,8 @@ Each SSEM attribute is scored **0–10**. Pillar scores are calculated using wei
 
 Part 1: SSEM Score Summary (overall score, grade, pillar breakdown with weights, top strengths, top improvement opportunities). Part 2: Detailed Findings per pillar (strengths with evidence, weaknesses with examples, recommendations with priority and expected point improvement). Part 3: Appendix A — 45-item Evaluation Checklist (15 per pillar) with pass/fail summary percentages. Severity count table.
 
-## OWASP References
+## OWASP & FIASSE References
 
-- [OWASP FIASSE Project](https://owasp.org/www-project-fiasse/) — Tools and resources for FIASSE/SSEM
 - [FIASSE RFC](https://github.com/Xcaciv/securable_software_engineering/blob/main/docs/FIASSE-RFC.md) — Framework for Integrating Application Security into Software Engineering
 - ISO/IEC 25010:2011 — Software quality models (Maintainability, Reliability definitions)
 - RFC 4949 — Internet Security Glossary (Trustworthiness, Integrity, Availability definitions)
@@ -83,3 +49,5 @@ Part 1: SSEM Score Summary (overall score, grade, pillar breakdown with weights,
 - OWASP Proactive Controls
 - OWASP Top 10 (2021)
 - OWASP ASVS v5.0
+
+```

@@ -14,7 +14,6 @@ import re
 import sys
 import textwrap
 from pathlib import Path
-from typing import Optional
 
 # ---------------------------------------------------------------------------
 # Section metadata registry
@@ -653,10 +652,9 @@ TARGET_SECTIONS: list[str] = [
 
 # Map section_id -> regex pattern matching its starting heading in the RFC.
 # The RFC uses varied heading levels (##, ###, ####) so we match flexibly.
-# Headings may optionally be prefixed with 'S' (e.g. "## S2.1 ..." or "## 2.1 ...").
 HEADING_PATTERNS: dict[str, re.Pattern] = {
     sid: re.compile(
-        rf"^#{{2,5}}\s+S?{re.escape(sid)}\.?\s",
+        rf"^#{{2,5}}\s+{re.escape(sid)}\.?\s",
         re.MULTILINE,
     )
     for sid in TARGET_SECTIONS
@@ -670,19 +668,19 @@ HEADING_PATTERNS: dict[str, re.Pattern] = {
 # The section ends when any of these patterns match (whichever comes first).
 
 # Next-sibling mappings (section -> next section at same or higher level)
-_NEXT_SECTION: dict[str, Optional[str]] = {}
+_NEXT_SECTION: dict[str, str | None] = {}
 for i, sid in enumerate(TARGET_SECTIONS):
     _NEXT_SECTION[sid] = TARGET_SECTIONS[i + 1] if i + 1 < len(TARGET_SECTIONS) else None
 
 # Also include higher-level headings that would terminate a section.
 # E.g. "## 4." terminates anything in section 3.x.
 _CHAPTER_HEADS = [
-    re.compile(rf"^#{{2,3}}\s+S?{ch}\.\s", re.MULTILINE)
+    re.compile(rf"^#{{2,3}}\s+{ch}\.\s", re.MULTILINE)
     for ch in ["2", "3", "4", "5", "6", "7", "8", "9", "10", "11"]
 ]
 
 
-def _find_heading(content: str, section_id: str, start: int = 0) -> Optional[int]:
+def _find_heading(content: str, section_id: str, start: int = 0) -> int | None:
     """Return the character offset of the heading for section_id, or None."""
     pat = HEADING_PATTERNS.get(section_id)
     if not pat:
@@ -737,7 +735,13 @@ def extract_sections(content: str) -> list[tuple[str, str]]:
     return results
 
 
-def _build_frontmatter(section_id: str) -> str:
+def _yaml_list(items: list[str], indent: int = 2) -> str:
+    """Format a list as YAML."""
+    prefix = " " * indent
+    return "\n".join(f"{prefix}- {item}" for item in items)
+
+
+def _build_frontmatter(section_id: str, body: str) -> str:
     """Build YAML frontmatter for a section file."""
     meta = SECTION_META.get(section_id, {})
     title = meta.get("title", f"Section {section_id}")
@@ -790,7 +794,7 @@ def extract(source_path: Path, dest_dir: Path) -> list[Path]:
 
     written: list[Path] = []
     for section_id, body in sections:
-        frontmatter = _build_frontmatter(section_id)
+        frontmatter = _build_frontmatter(section_id, body)
         out_path = dest_dir / f"S{section_id}.md"
         content = f"{frontmatter}\n\n{body}\n"
         out_path.write_text(content, encoding="utf-8")
