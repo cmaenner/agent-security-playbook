@@ -1,5 +1,11 @@
 # agent-security-playbook
 
+> **This project has moved to [OWASP/secure-agent-playbook](https://github.com/OWASP/secure-agent-playbook).**
+>
+> This repository is archived. All future development, issues, and pull requests should go to the new OWASP repository.
+
+---
+
 An open-source security playbook for AI agents. Structured, OWASP-grounded procedures that enable agents to perform security engineering tasks — from code review to AI agent security audits.
 
 ## What This Is
